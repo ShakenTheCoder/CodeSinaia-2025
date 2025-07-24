@@ -1,0 +1,14 @@
+import console_agent
+from console_agent import Agent
+model_name = "gemma3:1b"
+chat_log = []
+agent = Agent()
+question = input("Ask a question: ")
+while question != "/pa":
+    if question != "":
+        chat_log.append({"role": "user", "content": question})
+        response = agent.chat(chat_log)
+        print(response)
+        chat_log.append({"role": "assistant", "content": response})
+    question = input("Ask a question: ")
+print("Chat ended.")

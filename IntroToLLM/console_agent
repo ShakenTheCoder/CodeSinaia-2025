@@ -1,0 +1,10 @@
+import ollama
+
+class Agent():
+    model_name = "gemma3:1b"
+    def __init__ (self):
+        print("Agent initialized")
+    def chat(self, chat_log):
+        response = ollama.chat(model = self.model_name, 
+                               messages = chat_log)
+        return response["message"]["content"]
